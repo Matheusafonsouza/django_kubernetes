@@ -81,7 +81,6 @@ DATABASES = {
     }
 }
 
-POSTGRES_READY = str(getenv("POSTGRES_READY")) == "1"
 DB_DATABASE = getenv("POSTGRES_DB")
 DB_PASSWORD = getenv("POSTGRES_PASSWORD")
 DB_USER = getenv("POSTGRES_USER")
@@ -96,7 +95,7 @@ DB_IS_AVAILABLE = all([
     DB_PORT
 ])
 
-if DB_IS_AVAILABLE and POSTGRES_READY:
+if DB_IS_AVAILABLE:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
