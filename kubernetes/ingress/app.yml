@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  labels:
+    app: django-kubernetes
+  name: django-kubernetes
+  namespace: production
+spec:
+  rules:
+    - host: django-kubernetes.com.br
+      http:
+        paths:
+          - backend:
+              serviceName: django-kubernetes
+              servicePort: 8000

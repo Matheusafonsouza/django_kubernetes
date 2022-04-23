@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-kubernetes
+  labels:
+    app: django-kubernetes
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: django-kubernetes
+  template:
+    metadata:
+      labels:
+        app: django-kubernetes
+    spec:
+      containers:
+        - image: matheusafonsouza/django-kubernetes:latest
+          name: django-kubernetes
+          ports:
+            - containerPort: 8000
+              name: gunicorn

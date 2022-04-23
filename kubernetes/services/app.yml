@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: django-kubernetes
+  labels:
+    app: django-kubernetes
+spec:
+  type: ClusterIP
+  selector:
+    app: django-kubernetes
+  ports:
+    - port: 8000
+      targetPort: 8000
