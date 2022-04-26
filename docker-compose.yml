@@ -19,7 +19,7 @@ services:
       - staticfiles:/app/staticfiles/
 
   postgres:
-    image: postgres
+    image: postgres:13
     restart: always
     command: -p 5432
     env_file:
