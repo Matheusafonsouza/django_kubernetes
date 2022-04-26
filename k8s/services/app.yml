@@ -5,9 +5,11 @@ metadata:
   labels:
     app: django-kubernetes
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: django-kubernetes
   ports:
-    - port: 8000
-      targetPort: 8000
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8181
