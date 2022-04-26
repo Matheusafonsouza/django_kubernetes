@@ -15,6 +15,8 @@ jobs:
       max-parallel: 4
       matrix:
         python-version: [3.8]
+    env:
+      DJANGO_SECRET_KEY: not-good-key
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
